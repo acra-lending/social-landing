@@ -284,7 +284,8 @@ export default {
       const options = {
         method: 'POST',
         headers: { 
-          'Content-Type': 'application/x-www-form-urlencoded'
+          'Content-Type': 'application/x-www-form-urlencoded',
+          "Access-Control-Allow-Origin": "*"
         },
         data: qs.stringify(formData),
         url: 'https://secure.velocify.com/Import.aspx?Provider=CSCWebLeadRetailPages&Client=31215&CampaignId=58'
