@@ -282,7 +282,7 @@ export default {
     async function onSubmit(formData) {
       // console.log(JSON.stringify(formData, null, 2));
       const options = {
-        method: 'OPTIONS',
+        method: 'POST',
         headers: { 
           'Content-Type': 'application/x-www-form-urlencoded',
           "Access-Control-Allow-Origin": "*"
