@@ -168,7 +168,7 @@ import phoneEmailIcon from "@/assets/phone-email.svg";
 import phoneIcon from "@/assets/phone-alt-solid.svg";
 
 import axios from 'axios'
-import qs from 'qs'
+// import qs from 'qs'
 
 const loanAmounts = [
     {"id": 1, "amount": "$0 - $99,000"},
@@ -279,28 +279,19 @@ export default {
     /**
      * Only Called when the last step is submitted
      */
-    async function onSubmit(formData) {
-      // console.log(JSON.stringify(formData, null, 2));
-      const options = {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/x-www-form-urlencoded',
-          "Access-Control-Allow-Origin": "*"
-        },
-        data: qs.stringify(formData),
-        url: 'https://secure.velocify.com/Import.aspx?Provider=CSCWebLeadRetailPages&Client=31215&CampaignId=58'
-      }
-      try {
-        let res = await axios(options)
-        console.log(res.data)
-        location.href = 'https://acralending.com/thankyou';
-      } catch (err) {
-        console.error(err)
-      }
-      // https://secure.velocify.com/Import.aspx?Provider=CSCWebLeadRetailPages&Client=31215&CampaignId=58
-      // https://secure.velocify.com/Import.aspx?Provider=CSCWebLeadRetailPages&Client=31215&CampaignId=59
-    }
 
+    function onSubmit(formData) {
+      axios.post('http://localhost:3300/send', {
+        formData
+      }).then(response => {
+        if (response.status != 200) {
+          console.log(response)
+        } else {
+          location.href= 'https://acralending.com/thankyou';
+        }
+      })
+    }
+    
     return {
       validationSchema,
       onSubmit,
