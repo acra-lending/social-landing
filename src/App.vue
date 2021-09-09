@@ -281,7 +281,7 @@ export default {
      */
 
     function onSubmit(formData) {
-      axios.post('http://localhost:3300/send', {
+      axios.post('https://mtg.acralending.com/send', {
         formData
       }).then(response => {
         if (response.status != 200) {
@@ -291,7 +291,7 @@ export default {
         }
       })
     }
-    
+
     return {
       validationSchema,
       onSubmit,
