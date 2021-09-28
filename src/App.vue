@@ -290,7 +290,7 @@ export default {
         if (response.status != 200) {
           console.log(response)
         } else {
-          // location.href= 'https://acralending.com/thankyou';
+          location.href= 'https://acralending.com/thankyou';
           loading.value = false;
         }
       })
